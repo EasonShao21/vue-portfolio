@@ -1,0 +1,118 @@
+.logo {
+  width: 100px;
+  position: absolute;
+  top:-22px
+}
+
+.nav2 {
+  position: absolute;
+  top: 9px;
+  right: 20px;
+}
+
+.nav-item {
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  color: var(--text) !important;
+  opacity: 0.7;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: var(--text) !important;
+  margin: 0 3px;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.theme-toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.theme-toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.sun, .moon {
+  font-size: 20px;
+  cursor: pointer;
+  user-select: none;
+  transition: opacity 0.3s ease;
+}
+
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust spacing as needed */
+}
+
+html[data-theme='light'] .theme-switcher .moon,
+html[data-theme='dark'] .theme-switcher .sun {
+  opacity: 0.5; /* Dims the inactive icon */
+}
+
+html[data-theme='light'] .theme-switcher .sun,
+html[data-theme='dark'] .theme-switcher .moon {
+  opacity: 1; /* Highlights the active icon */
+}
+
+.theme-switcher .sun:hover,
+.theme-switcher .moon:hover {
+  filter: invert(1);
+}
+
+.theme-toggle-btn {
+  border: 1px solid var(--text);
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--text);
+  color: var(--bg);
+}

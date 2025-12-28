@@ -19,11 +19,13 @@
 /* 預設淺色 */
 :root {
   --text: #111;
+  --bg: #f5f5f5; /* Add light background for default */
 }
 
 /* 深色模式 */
 [data-theme="dark"] {
   --text: #f5f5f5;
+  --bg: #111; /* Add dark background for dark theme */
 }
 
 body {
@@ -49,7 +51,7 @@ p,span,li,a {
   }
 
   .navbar {
-    background: white;
+    background: var(--bg);
   }
 
   .nav2 {

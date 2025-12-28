@@ -1,85 +1,55 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <Navbar :slides="slides" @go-section="scrollToSection" />
+  <FullpageWrapper :slides="slides" ref="fullpageRef" />
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+<script setup>
+import { ref } from 'vue'
+import Navbar from '@/components/Navbar.vue'
+import FullpageWrapper from '@/components/FullpageWrapper.vue'
+
+const slides = [
+  {
+    id: 'slide1',
+    title: 'Taipei',
+    bg: 'src/assets/img/bg1.jpg',
+    intro: '台灣的政治與文化中心，融合現代都市感與多元藝文氣息。',
+  },
+  {
+    id: 'slide2',
+    title: 'NewTaipei',
+    bg: 'src/assets/img/bg2.jpg',
+    intro: '環繞台北的廣闊都會圈，擁有山海河港的多元景觀。',
+  },
+  {
+    id: 'slide3',
+    title: 'Taoyuan',
+    bg: 'src/assets/img/bg3.jpg',
+    intro: '國門所在的新興科技城，交通與產業發展迅速。',
+  },
+  {
+    id: 'slide4',
+    title: 'Taichung',
+    bg: 'src/assets/img/bg4.jpg',
+    intro: '氣候宜人、生活步調舒適，被譽為最適合居住的城市之一。',
+  },
+  {
+    id: 'slide5',
+    title: 'Tainan',
+    bg: 'src/assets/img/bg5.jpg',
+    intro: '台灣最古老的城市，以深厚歷史、文化底蘊與美食著名。',
+  },
+  {
+    id: 'slide6',
+    title: 'Kaohsiung',
+    bg: 'src/assets/img/bg6.jpg',
+    intro: '南台灣的海港大城，兼具現代化建設與海洋城市魅力。',
+  },
+]
+
+const fullpageRef = ref(null)
+
+function scrollToSection(id) {
+  fullpageRef.value?.goToSection(id)
 }
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>
+</script>

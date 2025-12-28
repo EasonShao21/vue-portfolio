@@ -38,15 +38,11 @@ const props = defineProps({
   intro: String
 });
 
-const bgStyle = computed(() => {
-  // Use `new URL` to correctly handle dynamic asset paths in Vite
-  const imageUrl = new URL(`../assets/img/${props.bg.split('/').pop()}`, import.meta.url).href;
-  return {
-    backgroundImage: `url(${imageUrl})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  };
-});
+const bgStyle = computed(() => ({
+  backgroundImage: `url(${props.bg})`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+}));
 </script>
 
 <style scoped src="@/assets/styles/slide.scss"></style>

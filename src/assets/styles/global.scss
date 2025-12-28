@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'Gotham Medium';
+    src: url('../font/GothamMedium.woff2') format('woff2'),
+        url('../font/GothamMedium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham Book';
+    src: url('../font/Gotham-Book.woff2') format('woff2'),
+        url('../font/Gotham-Book.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 預設淺色 */
+:root {
+  --background: #ffffff; /* White background for light mode */
+  --text: #111;         /* Black text for light mode */
+  --navbar-bg: #ffffff; /* White navbar background for light mode */
+}
+
+/* 深色模式 */
+[data-theme="dark"] {
+  --background: #111;   /* Black background for dark mode */
+  --text: #f5f5f5;     /* White text for dark mode */
+  --navbar-bg: #1a1a1a; /* Slightly lighter dark for navbar in dark mode */
+}
+
+body {
+  color: var(--text);
+  background: var(--background);
+}
+
+.navbar {
+  background: var(--navbar-bg);
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Gotham Medium'
+}
+
+p,span,li,a {
+    font-family: 'Gotham Book';
+}
+
+@media only screen and (max-width: 990px) {
+  .logo {
+    right: 20px;
+    left: auto;
+  }
+
+  .navbar {
+    background: white;
+  }
+
+  .nav2 {
+    position: relative;
+    right: auto;
+    top: 0;
+  }
+}

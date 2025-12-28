@@ -18,21 +18,16 @@
 
 /* 預設淺色 */
 :root {
-  --background: #ffffff; /* White background for light mode */
-  --text: #111;         /* Black text for light mode */
-  --navbar-bg: #ffffff; /* White navbar background for light mode */
+  --text: #111;
 }
 
 /* 深色模式 */
 [data-theme="dark"] {
-  --background: #111;   /* Black background for dark mode */
-  --text: #f5f5f5;     /* White text for dark mode */
-  --navbar-bg: #1a1a1a; /* Slightly lighter dark for navbar in dark mode */
+  --text: #f5f5f5;
 }
 
 body {
   color: var(--text);
-  background: var(--background);
 }
 
 .navbar {
